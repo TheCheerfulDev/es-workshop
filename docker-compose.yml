@@ -42,8 +42,8 @@ services:
   kibana:
     container_name: esw-kibana
     image: docker.elastic.co/kibana/kibana:6.8.9
-    volumes:
-      - ./kibana/config/:/usr/share/kibana/config:ro
+    environment:
+      ELASTICSEARCH_HOSTS: http://node1:9200
     ports:
       - "5601:5601"
     networks:
